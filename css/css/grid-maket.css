@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#wrap{
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+}
+
+header{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#logo{
+    height: 100%;
+    background-color: Navy;
+}
+
+#menu{
+    height: 100%;
+    background-color: Blue;
+}
+
+ul.menu{
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.menu-item{
+    color: white;
+}
+
+#content{
+    display: grid;
+    grid-template-columns: 200px minmax(500px, auto);
+}
+
+aside{
+    background-color: DeepSkyBlue;
+}
+
+main{
+    background-color: DodgerBlue;
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+article{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+footer{
+    background-color: MidnightBlue;
+ }
