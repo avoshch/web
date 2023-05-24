@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            td {
+                 text-align: center;
+            }
+    </style>
+
+    <script>
+        async function showCurrency (){
+            let response = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json');
+            let data = await response.json();
+
+            let selectedCurrency=[0, 10, 46, 56];
+            
+            let table = document.createElement('td');
+
+            let row1 = document.createElement('tr');
+            row1.appendChild( document.createElement('td'));
+            row1.childNodes[0].innerHTML='Назва валюти';
+
+
+                for (let index of selectedCurrency){
+                    let cell = document.createElement('td');
+                    cell.innerHTML=data[index].txt;
+                    row1.appendChild(cell);
+                }
+
+            table.appendChild(row1);
+
+
+            let row2 = document.createElement('tr');
+            row2.appendChild( document.createElement('td'));
+            row2.childNodes[0].innerHTML='Курс';
+
+
+                for (let index of selectedCurrency){
+                    let cell = document.createElement('td');
+                    cell.innerHTML=data[index].rate;
+                    row2.appendChild(cell);
+                }
+
+            table.appendChild(row2);            
+
+            document.body.appendChild(table);
+
+
+        }
+        showCurrency ();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
